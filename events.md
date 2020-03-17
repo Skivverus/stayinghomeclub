@@ -8,10 +8,12 @@ Go [Home](/). Jump to: <a href="/companies.html">Companies</a>. Jump to: <a href
 
 <a name="events"></a>
 {% assign cancelled = site.data.events | where_exp:"item", "item.status contains 'cancelled'" | size %}
+{% assign postponed = site.data.events | where_exp:"item", "item.status contains 'postponed'" | size %}
 
 ## Events - {{ site.data.events | size }}
 
 *Events cancelled: **{{cancelled}}***
+*Events postponed: **{{postponed}}***
 
 {% for event in site.data.events %}
 - {{event.name}}: {{event.status}}{% endfor %}
